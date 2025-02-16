@@ -2,20 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Apply smooth transition effects */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Ensure entire page adapts to dark mode */
+html, body, #__next {
+  @apply bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-all;
+  min-height: 100vh; /* Ensures full viewport coverage */
+  width: 100vw; /* Ensures no gaps */
+  overflow-x: hidden; /* Prevents white space from appearing on the sides */
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
