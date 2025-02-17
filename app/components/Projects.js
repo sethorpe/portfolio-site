@@ -2,6 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import PasswordGenerator from "./PasswordGenerator";
+import Converter from "./Converter";
 
 export default function Projects() {
   return (
@@ -48,6 +49,24 @@ export default function Projects() {
                     <PasswordGenerator />
                 </div>
             </motion.div>
+            <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.8 }}
+                className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md transition-all"
+            >
+                <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-300">Metric to Imperial Converter</h3>
+                <p className="text-gray-600 dark:text-gray-400 mt-2">
+                    Convert length, weight, and temperature between metric and imperial units.
+                </p>
+                <div className="mt-4">
+                    <Converter />
+                </div>
+            </motion.div>
+
         </div>
     </motion.section>
   );
