@@ -58,7 +58,7 @@ export default function Projects() {
                 transition={{ duration: 0.6, ease: "easeOut", delay: 0.8 }}
                 className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md transition-all"
             >
-                <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-300">Metric to Imperial Converter</h3>
+                <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-300">Unit Converter</h3>
                 <p className="text-gray-600 dark:text-gray-400 mt-2">
                     Convert length, weight, and temperature between metric and imperial units.
                 </p>
