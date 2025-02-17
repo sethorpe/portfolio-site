@@ -10,6 +10,7 @@ export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
 
     useEffect(() => {
+        if (typeof window == "undefined") return; // Ensure window is defined
         const handleScroll = () => {
             setScrolled(window.scrollY > 50);
         };
@@ -78,7 +79,7 @@ export default function Navbar() {
                     <Link href="#projects" className="text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600" onClick={() => setMenuOpen(false)}>
                         Projects
                     </Link>
-                    <Link href="#contacts" className="text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600" onClick={() => setMenuOpen(false)}>
+                    <Link href="#contact" className="text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600" onClick={() => setMenuOpen(false)}>
                         Contact
                     </Link>
                     <DarkModeToggle />
