@@ -16,22 +16,6 @@ export default function Projects() {
     >
         <h2 className="text-4xl font-bold text-gray-800 dark:text-white">Projects</h2>
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {["Project 1", "Project 2", "Project 3"].map((project, index) => (
-                <motion.div
-                    key={index} // ✅ Fix key error
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.98 }}
-                    initial={{ opacity: 0, y: 30, scale: 0.9 }}
-                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.2 }}
-                    className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md cursor-pointer transition-all"
-                >
-                    <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-300">{project}</h3>
-                    <p className="text-gray-600 dark:text-gray-400 mt-2">Brief description of the project.</p>
-                </motion.div>
-            ))}
-
             {/* New Project Card for Password Generator */}
             <motion.div
                 whileHover={{ scale: 1.05 }}

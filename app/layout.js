@@ -12,9 +12,37 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "S Thorpe - Portfolio",
-  description: "A showcase of my projects and skills",
+  icons: {
+    icon: "/favicon.ico",
+  },
+  title: "Segun Thorpe - Software Developer & QA Engineer",
+  description: "A showcase of my software development and automation projects. Explore my work in web development, testing, and automation.",
+  keywords: "software developer, QA engineer, automation, testing, web development, Next.js, React, portfolio",
+  authors: [{ name: "Segun Thorpe", url: "https://segunthorpe.com" }],
+  robots: "index, follow",
+  openGraph: {
+    title: "Segun Thorpe - Software Developer & QA Engineer",
+    description: "Explore my projects in software development, web automation, and testing.",
+    url: "https://segunthorpe.com",
+    siteName: "Segun Thorpe Portfolio",
+    images: [
+      {
+        url: "https://segunthorpe.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Segun Thorpe Portfolio Preview",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Segun Thorpe - Software Developer & QA Engineer",
+    description: "A showcase of my software development and automation projects.",
+    images: ["https://segunthorpe.com/og-image.jpg"],
+  },
 };
+
 
 export default function RootLayout({ children }) {
   return (

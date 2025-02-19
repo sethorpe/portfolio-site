@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import { FiLinkedin, FiGithub } from "react-icons/fi";
 
 export default function Contact() {
   return (
@@ -14,18 +15,22 @@ export default function Contact() {
     >
         <h2 className="text-4xl font-bold text-gray-800 dark:text-white">Contact Me</h2>
         <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
-            Feel free to reach out via email or connect with me on LinkedIn.
+            Feel free to connect with me on LinkedIn or check out my GitHub.
         </p>
-        <div className="mt-6">
-            <motion.a 
-                href="mailto:your@email.com"
-                className="text-lg text-blue-600 font-semibold hover:underline"
-                whileHover={{ scale: 1.1, color: "#1e40af" }} // Darker blue on hover
-            >
-                your@email.com
-            </motion.a>
+
+        {/* Social Icons */}
+        <div className="mt-6 flex justify-center space-x-6">
+            <a href="https://www.linkedin.com/in/s-thorpe" target="_blank" rel="noopener noreferrer"
+               className="flex items-center space-x-2 px-6 py-3 text-lg font-semibold text-white bg-blue-600 rounded-lg shadow-md hover:bg-blue-700 transition">
+                <FiLinkedin className="text-2xl" /> 
+                <span>LinkedIn</span>
+            </a>
+            <a href="https://github.com/sethorpe" target="_blank" rel="noopener noreferrer"
+               className="flex items-center space-x-2 px-6 py-3 text-lg font-semibold text-white bg-gray-800 rounded-lg shadow-md hover:bg-gray-900 transition">
+                <FiGithub className="text-2xl" /> 
+                <span>GitHub</span>
+            </a>
         </div>
     </motion.section>
   );
 }
-
