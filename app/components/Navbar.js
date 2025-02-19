@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import DarkModeToggle from "./DarkModeToggle";
 import { FiMenu, FiX } from "react-icons/fi";
+import Image from "next/image";
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
@@ -29,7 +30,27 @@ export default function Navbar() {
         >
             <div className="max-w-4xl mx-auto flex justify-between items-center">
                 {/* Logo */}
-                <Link href="/" className="text-lg font-semibold text-gray-800 dark:text-white hover:text-blue-600">Home</Link>
+                {/* <Link href="/" className="text-lg font-semibold text-gray-800 dark:text-white hover:text-blue-600">Home</Link> */}
+                <Link href="/">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5, ease: "easeOut"}}
+                        whileHover={{ scale: 1.1 }}
+                        className="overflow-hidden rounded-3xl shadow-md"
+                    >
+                        <Image 
+                            src="/navbar-logo-proportional.png"
+                            alt="Logo"
+                            width={150}
+                            height={0}
+                            style={{ height: "auto" }}
+                            className="rounded-3xl"
+                        />
+
+                    </motion.div>
+                </Link>
+
                 {/* Desktop Navigation */}
                 <div className="hidden md:flex space-x-6">
                     <motion.a
