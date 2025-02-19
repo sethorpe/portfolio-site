@@ -28,7 +28,7 @@ export default function Navbar() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
         >
-            <div className="max-w-4xl mx-auto flex justify-between items-center">
+            <div className="max-w-4xl mx-auto flex items-center justify-between">
                 {/* Logo */}
                 {/* <Link href="/" className="text-lg font-semibold text-gray-800 dark:text-white hover:text-blue-600">Home</Link> */}
                 <Link href="/">
@@ -45,7 +45,7 @@ export default function Navbar() {
                             width={150}
                             height={0}
                             style={{ height: "auto" }}
-                            className="rounded-3xl"
+                            className="w-20 h-auto md:w-32"
                         />
 
                     </motion.div>
@@ -83,15 +83,18 @@ export default function Navbar() {
                     <DarkModeToggle/>
                 </div>
                 { /* Mobile Menu Button */}
-                <button
-                    onClick={() => setMenuOpen(!menuOpen)}
-                    className="md:hidden text-gray-800 dark:text-white text-2xl"
-                >
-                    {menuOpen ? <FiX /> : <FiMenu />}
-                </button>
+                <div className="ml-2 md:ml-4">
+                    <button
+                        onClick={() => setMenuOpen(!menuOpen)}
+                        className="md:hidden text-gray-800 dark:text-white text-2xl"
+                    >
+                        {menuOpen ? <FiX /> : <FiMenu />}
+                    </button>
+                </div>
+                
             </div>
 
-            {/* Mobile Navigatio Menu */}
+            {/* Mobile Navigation Menu */}
             {menuOpen && (
                 <div className="md:hidden bg-white dark:bg-gray-800 absolute top-16 left-0 w-full flex flex-col items-center py-4 space-y-4 shadow-md">
                     <Link href="#about" className="text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600" onClick={() => setMenuOpen(false)}>

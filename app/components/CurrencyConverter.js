@@ -41,7 +41,6 @@ export default function CurrencyConverter() {
   return (
     <div className="max-w-md mx-auto p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg text-center">
       <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Currency Converter</h2>
-      <p className="text-gray-600 dark:text-gray-400 mt-2">Convert between different currencies in real-time using the latest exchange rates.</p>
 
       {/* Amount Input */}
       <div className="mt-4 text-left">
