@@ -39,15 +39,19 @@ export default function Navbar() {
                         whileHover={{ scale: 1.1 }}
                         className="overflow-hidden rounded-3xl shadow-md"
                     >
-                        <Image 
-                            src="/navbar-logo-proportional.png"
-                            alt="Logo"
-                            width={150}
-                            height={0}
-                            style={{ height: "auto" }}
-                            className="w-20 h-auto md:w-32"
-                        />
-
+                        <picture>
+                            <source srcSet="/navbar-logo-proportional.avif" type="image/avif" />
+                            <source srcSet="/navbar-logo-proportional.webp" type="image/webp" />
+                            <Image 
+                                src="/navbar-logo-proportional.webp"
+                                alt="Navbar Logo"
+                                width={150}
+                                height={0}
+                                style={{ height: "auto" }}
+                                priority={true}
+                                className="w-20 h-auto md:w-32"
+                            />
+                        </picture>
                     </motion.div>
                 </Link>
 
@@ -56,23 +60,31 @@ export default function Navbar() {
                     <motion.a
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
-                        href="#about" 
+                        href="/#about" 
                         className="text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600"
                     >
                         About
                     </motion.a>
-                    <motion.a
+                    {/* <motion.a
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95}}
                         href="#projects"
                         className="text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600"
                     >
                         Projects
+                    </motion.a> */}
+                    <motion.a
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95}}
+                        href="/tools"
+                        className="text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600"
+                    >
+                        Tools
                     </motion.a>
                     <motion.a
                         whileHover={{scale: 1.1 }}
                         whileTap={{scale: 0.95 }}
-                        href="#contact"
+                        href="/#contact"
                         className="text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600"
                     >
                         Contact
@@ -100,8 +112,11 @@ export default function Navbar() {
                     <Link href="#about" className="text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600" onClick={() => setMenuOpen(false)}>
                         About
                     </Link>
-                    <Link href="#projects" className="text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600" onClick={() => setMenuOpen(false)}>
+                    {/* <Link href="#projects" className="text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600" onClick={() => setMenuOpen(false)}>
                         Projects
+                    </Link> */}
+                    <Link href="/tools" className="text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600" onClick={() => setMenuOpen(false)}>
+                        Tools
                     </Link>
                     <Link href="#contact" className="text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600" onClick={() => setMenuOpen(false)}>
                         Contact
