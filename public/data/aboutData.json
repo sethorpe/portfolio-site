@@ -1,0 +1,18 @@
+{
+    "name": "Segun Thorpe",
+    "title": "Software Developer & QA Engineer",
+    "description": "I specialize in test automation, web development, API testing, and desktop automation. With 4+ years of experience, I build robust automated test frameworks, develop scalable applications, and optimize workflows.",
+    "skills": [
+      { "category": "Programming Languages", "list": ["Python", "JavaScript", "C#", "Java"] },
+      { "category": "Web Development", "list": ["Next.js", "React", "Node.js"] },
+      { "category": "Automation & Testing", "list": ["Selenium", "API Testing", "Mainframe Apps", "SikuliX"] },
+      { "category": "DevOps & CI/CD", "list": ["GitHub Actions", "Vercel Deployment", "Azure Pipelines"] }
+    ],
+    "interests": [
+      "Test Automation & Software Quality Assurance",
+      "Cloud Computing",
+      "AI in Test Automation",
+      "Open Source Projects"
+    ]
+  }
+  

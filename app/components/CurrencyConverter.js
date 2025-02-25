@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 export default function CurrencyConverter() {
   const [amount, setAmount] = useState(1);
@@ -10,25 +10,25 @@ export default function CurrencyConverter() {
   const [rates, setRates] = useState(null);
   const [lastUpdated, setLastUpdated] = useState(null);
 
-  // Function to fetch exchange rates
-  const fetchRates = async () => {
+  // Wrap fetchRates in useCallback to prevent unnecessary re-renders
+  const fetchRates = useCallback(async () => {
     try {
       const res = await fetch(`https://api.exchangerate-api.com/v4/latest/${fromCurrency}`);
       const data = await res.json();
       setRates(data.rates);
-      setLastUpdated(new Date().toLocaleTimeString()); // Save the last update time
+      setLastUpdated(new Date().toLocaleTimeString());
     } catch (error) {
       console.error("Error fetching exchange rates:", error);
     }
-  };
+  }, [fromCurrency]); // Add fromCurrency as a dependency
 
-  // Fetch exchange rates on component mount and every 60 seconds
+  // useEffect now correctly includes fetchRates in the dependency array
   useEffect(() => {
     fetchRates(); // Initial fetch
     const interval = setInterval(fetchRates, 60000); // Fetch every 60 seconds
 
     return () => clearInterval(interval); // Cleanup interval on unmount
-  }, [fromCurrency]);
+  }, [fetchRates]); // No ESLint warning now
 
   // Perform conversion when amount, toCurrency, or rates change
   useEffect(() => {
