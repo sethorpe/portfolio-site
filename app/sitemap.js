@@ -1,5 +1,3 @@
-import { MetadataRoute } from "next";
-
 export default function sitemap() {
   return [
     {
@@ -7,7 +5,7 @@ export default function sitemap() {
       lastModified: new Date().toISOString(),
     },
     {
-      url: "https://segunthorpe.com/projects",
+      url: "https://segunthorpe.com/tools",
       lastModified: new Date().toISOString(),
     },
   ];
