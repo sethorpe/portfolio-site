@@ -19,3 +19,8 @@ html, body, #__next {
 section {
   @apply bg-white dark:bg-gray-900 transition-all;
 }
+
+/* Ensure LCP text styles load instantly */
+h2, p {
+  @apply text-gray-800 dark:text-gray-300 leading-relaxed transition-colors duration-200;
+}

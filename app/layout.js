@@ -4,13 +4,15 @@ import "./globals.css";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
-  display: "swap"
+  display: "swap",
+  preload: true
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-  display: "swap"
+  display: "swap",
+  preload: true
 });
 
 export const metadata = {
@@ -58,10 +60,6 @@ export default function RootLayout({ children }) {
 
         {/* Preload LCP Image */}
         <link rel="preload" as="image" href="/profile-300.avif" type="image/avif" />
-
-        {/* Preconnect for Google Fonts */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
