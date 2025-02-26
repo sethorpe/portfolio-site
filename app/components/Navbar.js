@@ -109,16 +109,13 @@ export default function Navbar() {
             {/* Mobile Navigation Menu */}
             {menuOpen && (
                 <div className="md:hidden bg-white dark:bg-gray-800 absolute top-16 left-0 w-full flex flex-col items-center py-4 space-y-4 shadow-md">
-                    <Link href="#about" className="text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600" onClick={() => setMenuOpen(false)}>
+                    <Link href="/#about" className="text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600" onClick={() => setMenuOpen(false)}>
                         About
                     </Link>
-                    {/* <Link href="#projects" className="text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600" onClick={() => setMenuOpen(false)}>
-                        Projects
-                    </Link> */}
                     <Link href="/tools" className="text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600" onClick={() => setMenuOpen(false)}>
                         Tools
                     </Link>
-                    <Link href="#contact" className="text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600" onClick={() => setMenuOpen(false)}>
+                    <Link href="/#contact" className="text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600" onClick={() => setMenuOpen(false)}>
                         Contact
                     </Link>
                     <DarkModeToggle />
