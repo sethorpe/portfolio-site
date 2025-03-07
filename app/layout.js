@@ -61,7 +61,7 @@ export default function RootLayout({ children }) {
         {/* Preload LCP Image */}
         <link rel="preload" as="image" href="/profile-300.avif" type="image/avif" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}>
         {children}
       </body>
     </html>
