@@ -1,5 +1,8 @@
 {
-    "name": "Segun Thorpe",
+    "name": {
+      "first": "Segun",
+      "last": "Thorpe"
+    },
     "title": "Software Developer & QA Engineer",
     "description": "I specialize in test automation, web development, API testing, and desktop automation. With 4+ years of experience, I build robust automated test frameworks, develop scalable applications, and optimize workflows.",
     "skills": [
