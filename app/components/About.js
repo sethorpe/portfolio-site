@@ -34,14 +34,14 @@ export default function About() {
                     >
                         <picture>
                             <source srcSet="/profile-300.avif" type="image/avif" media="(min-width: 768px)" />
-                            <source srcSet="/profile-150.avif" type="image/avif" media="(max-width: 767px)" />
+                            <source srcSet="/profile-200.avif" type="image/avif" media="(max-width: 767px)" />
                             <source srcSet="/profile-300.webp" type="image/webp" />
                             <Image
                                 src="/profile-300.avif"
                                 alt="Profile Image"
                                 width={300}
                                 height={300}
-                                sizes="(max-width: 600px) 150px, (min-width: 601px) 300px"
+                                sizes="(max-width: 600px) 200px, (min-width: 601px) 300px"
                                 priority={true}  // Ensures it loads early
                                 fetchPriority="high"
                                 className="rounded-lg shadow-md border-2 border-gray-400 dark:border-gray-600 w-[260px] h-[300px] sm:w-[300px] sm:h-[350px] object-cover"
