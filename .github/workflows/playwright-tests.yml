@@ -1,10 +1,18 @@
 name: Playwright Tests
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main  # Runs on pushes to main
+  pull_request:
+    branches:
+      - main  # Runs on PRs to main
 
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 10  # Prevent long-hanging jobs
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -13,12 +21,16 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
+          cache: npm  # Caches npm dependencies to speed up CI runs
 
       - name: Install dependencies
         run: npm ci
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
+
+      - name: Set Environment Variables
+        run: echo "BASE_URL=https://portfolio-site-ebon-rho.vercel.app" >> $GITHUB_ENV  # Set the BASE_URL dynamically
 
       - name: Run Playwright tests
         run: npx playwright test
