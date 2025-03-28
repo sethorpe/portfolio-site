@@ -31,8 +31,10 @@ test.describe('Navbar Tests', () => {
         // Override to use a mobile viewport
         await page.setViewportSize({ width: 375, height: 812});
 
+        await page.waitForFunction(() => document.readyState === 'complete');
         const menuButton = page.locator('button[aria-label="Open Menu"]');
-
+        await page.screenshot({ path: 'mobile-menu-test-fail.png', fullPage: true });
+        console.log(await page.content())
         await expect(menuButton).toBeVisible();
 
         await menuButton.click();
