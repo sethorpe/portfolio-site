@@ -22,6 +22,10 @@ export default defineConfig({
       use: { browserName: 'chromium'}
     },
   ],
+  reporter: [
+    ['list'],
+    ['./playwright.debug-reporter.js']
+  ],
 
   // CI/CD Enhancements
   timeout: 90 * 1000,  // Increase timeout to 90s

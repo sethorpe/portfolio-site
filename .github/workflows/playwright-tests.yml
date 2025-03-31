@@ -29,6 +29,18 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
+      - name: Wait for deployment to be ready
+        run: |
+          n=0
+          until curl =sSf $BASE_URL >/dev/null || [ $n -ge 20 ]; do
+            echo " Waiting for $BASE_URL to be ready... (try $n)"
+            n=$((n+1))
+            sleep 10
+          done
+          echo "Deploymnt is ready!"
+        env:
+          BASE_URL: https://portfolio-site-git-add-ui-tests-seyi-thorpes-projects.vercel.app
+          
       - name: Set Environment Variables
         run: echo "BASE_URL=https://portfolio-site-git-add-ui-tests-seyi-thorpes-projects.vercel.app/" >> $GITHUB_ENV  # Set the BASE_URL dynamically
 
