@@ -33,8 +33,6 @@ test.describe('Navbar Tests', () => {
 
         await page.waitForFunction(() => document.readyState === 'complete');
         const menuButton = page.locator('button[aria-label="Open Menu"]');
-        await page.screenshot({ path: 'mobile-menu-test-fail.png', fullPage: true });
-        console.log(await page.content())
         await expect(menuButton).toBeVisible();
 
         await menuButton.click();
