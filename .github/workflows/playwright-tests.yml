@@ -30,7 +30,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Set Environment Variables
-        run: echo "BASE_URL=https://portfolio-site-e6mb50tla-seyi-thorpes-projects.vercel.app" >> $GITHUB_ENV  # Set the BASE_URL dynamically
+        run: echo "BASE_URL=https://portfolio-site-git-add-ui-tests-seyi-thorpes-projects.vercel.app/" >> $GITHUB_ENV  # Set the BASE_URL dynamically
 
       - name: Run Playwright tests
         run: npx playwright test
