@@ -68,7 +68,7 @@ export default function Converter() {
   if (!isClient) return null;
 
   return (
-    <div className="converter">
+    // <div className="converter">
       <div className="max-w-md mx-auto p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg text-center">
         <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Unit Converter</h2>
 
@@ -115,7 +115,7 @@ export default function Converter() {
           </div>
         )}
       </div>
-    </div>
+    // </div>
     
   );
 }

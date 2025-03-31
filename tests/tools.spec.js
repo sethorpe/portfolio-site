@@ -13,8 +13,6 @@ test.describe('Tools Page Tests', () => {
     });
 
     test('Currency Converter should fetch exchange rates', async ({ page }) => {
-        const response = await page.waitForResponse(response => response.url().includes('exchangerate-api.com'));
-        console.log(await response.json());
         const fromCurrencyDropdown = page.locator('.currency-converter select').first();
         const toCurrencyDropdown = page.locator('.currency-converter select').nth(1);
         const exchangeRateText = page.locator('text=Last updated');

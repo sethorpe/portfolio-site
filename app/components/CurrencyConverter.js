@@ -39,7 +39,7 @@ export default function CurrencyConverter() {
   }, [amount, toCurrency, rates]);
 
   return (
-    <div className="currency-converter">
+    // <div className="currency-converter">
       <div className="max-w-md mx-auto p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg text-center">
         <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Currency Converter</h2>
 
@@ -106,7 +106,7 @@ export default function CurrencyConverter() {
           </p>
         )}
       </div>
-    </div>
+    // </div>
     
   );
 }
