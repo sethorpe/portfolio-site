@@ -28,7 +28,7 @@ export default defineConfig({
   ],
 
   // CI/CD Enhancements
-  timeout: 90 * 1000,  // Increase timeout to 90s
+  timeout: 30 * 1000,  // Reduce timeout to 30s for faster feedback
   retries: process.env.CI ? 2 : 0,  // Retry failed tests in CI
   workers: process.env.CI ? 1 : undefined, // Limit workers to 1 in CI
 });

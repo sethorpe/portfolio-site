@@ -39,74 +39,71 @@ export default function CurrencyConverter() {
   }, [amount, toCurrency, rates]);
 
   return (
-    // <div className="currency-converter">
-      <div className="max-w-md mx-auto p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg text-center">
-        <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Currency Converter</h2>
+    <div className="max-w-md mx-auto p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg text-center">
+      <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Currency Converter</h2>
 
-        {/* Amount Input */}
-        <div className="mt-4 text-left">
-          <label className="block text-gray-700 dark:text-gray-300 mb-1">Amount</label>
-          <input
-            type="number"
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
-            className="w-full p-3 border rounded-md text-gray-700 dark:text-gray-300 dark:bg-gray-700"
-          />
-        </div>
-
-        {/* From Currency Selection */}
-        <div className="mt-4 text-left">
-          <label className="block text-gray-700 dark:text-gray-300 mb-1">From</label>
-          <select
-            value={fromCurrency}
-            onChange={(e) => setFromCurrency(e.target.value)}
-            className="w-full p-3 border rounded-md text-gray-700 dark:text-gray-300 dark:bg-gray-700"
-          >
-            <option value="USD">USD - US Dollar</option>
-            <option value="EUR">EUR - Euro</option>
-            <option value="GBP">GBP - British Pound</option>
-            <option value="CAD">CAD - Canadian Dollar</option>
-            <option value="JPY">JPY - Japanese Yen</option>
-            <option value="NGN">NGN - Nigerian Naira</option>
-            <option value="UGX">UGX - Ugandan Shilling</option>
-            <option value="ZAR">ZAR - South African Rand</option>
-          </select>
-        </div>
-
-        {/* To Currency Selection */}
-        <div className="mt-4 text-left">
-          <label className="block text-gray-700 dark:text-gray-300 mb-1">To</label>
-          <select
-            value={toCurrency}
-            onChange={(e) => setToCurrency(e.target.value)}
-            className="w-full p-3 border rounded-md text-gray-700 dark:text-gray-300 dark:bg-gray-700"
-          >
-            <option value="USD">USD - US Dollar</option>
-            <option value="EUR">EUR - Euro</option>
-            <option value="GBP">GBP - British Pound</option>
-            <option value="CAD">CAD - Canadian Dollar</option>
-            <option value="JPY">JPY - Japanese Yen</option>
-            <option value="NGN">NGN - Nigerian Naira</option>
-            <option value="UGX">UGX - Ugandan Shilling</option>
-            <option value="ZAR">ZAR - South African Rand</option>
-          </select>
-        </div>
-
-        {/* Converted Amount Display */}
-        {convertedAmount && (
-          <div className="mt-4 p-3 bg-gray-100 dark:bg-gray-700 rounded-md text-lg font-semibold text-gray-800 dark:text-white">
-            {amount} {fromCurrency} = {convertedAmount} {toCurrency}
-          </div>
-        )}
-
-        {/* Last Updated Time */}
-        {lastUpdated && (
-          <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
-            Last updated: {lastUpdated}
-          </p>
-        )}
+      {/* Amount Input */}
+      <div className="mt-4 text-left">
+        <label className="block text-gray-700 dark:text-gray-300 mb-1">Amount</label>
+        <input
+          type="number"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+          className="w-full p-3 border rounded-md text-gray-700 dark:text-gray-300 dark:bg-gray-700"
+        />
       </div>
-    // </div>
-    
+
+      {/* From Currency Selection */}
+      <div className="mt-4 text-left">
+        <label className="block text-gray-700 dark:text-gray-300 mb-1">From</label>
+        <select
+          value={fromCurrency}
+          onChange={(e) => setFromCurrency(e.target.value)}
+          className="w-full p-3 border rounded-md text-gray-700 dark:text-gray-300 dark:bg-gray-700"
+        >
+          <option value="USD">USD - US Dollar</option>
+          <option value="EUR">EUR - Euro</option>
+          <option value="GBP">GBP - British Pound</option>
+          <option value="CAD">CAD - Canadian Dollar</option>
+          <option value="JPY">JPY - Japanese Yen</option>
+          <option value="NGN">NGN - Nigerian Naira</option>
+          <option value="UGX">UGX - Ugandan Shilling</option>
+          <option value="ZAR">ZAR - South African Rand</option>
+        </select>
+      </div>
+
+      {/* To Currency Selection */}
+      <div className="mt-4 text-left">
+        <label className="block text-gray-700 dark:text-gray-300 mb-1">To</label>
+        <select
+          value={toCurrency}
+          onChange={(e) => setToCurrency(e.target.value)}
+          className="w-full p-3 border rounded-md text-gray-700 dark:text-gray-300 dark:bg-gray-700"
+        >
+          <option value="USD">USD - US Dollar</option>
+          <option value="EUR">EUR - Euro</option>
+          <option value="GBP">GBP - British Pound</option>
+          <option value="CAD">CAD - Canadian Dollar</option>
+          <option value="JPY">JPY - Japanese Yen</option>
+          <option value="NGN">NGN - Nigerian Naira</option>
+          <option value="UGX">UGX - Ugandan Shilling</option>
+          <option value="ZAR">ZAR - South African Rand</option>
+        </select>
+      </div>
+
+      {/* Converted Amount Display */}
+      {convertedAmount && (
+        <div className="mt-4 p-3 bg-gray-100 dark:bg-gray-700 rounded-md text-lg font-semibold text-gray-800 dark:text-white">
+          {amount} {fromCurrency} = {convertedAmount} {toCurrency}
+        </div>
+      )}
+
+      {/* Last Updated Time */}
+      {lastUpdated && (
+        <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
+          Last updated: {lastUpdated}
+        </p>
+      )}
+    </div>
   );
 }

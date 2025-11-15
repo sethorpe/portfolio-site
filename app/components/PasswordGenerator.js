@@ -47,62 +47,59 @@ export default function PasswordGenerator() {
   if (!isClient) return null;
 
   return (
-    // <div className="password-generator">
-      <div className="max-w-md mx-auto p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg text-center">
-        <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Password Generator</h2>
+    <div className="max-w-md mx-auto p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg text-center">
+      <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Password Generator</h2>
 
-        <div className="mt-4 text-left">
-          <label className="block text-gray-700 dark:text-gray-300">Length: {length}</label>
-          <input
-            type="range"
-            min="6"
-            max="30"
-            value={length}
-            onChange={(e) => setLength(Number(e.target.value))}
-            className="w-full mt-2"
-          />
-        </div>
-
-        <div className="mt-4 flex flex-col items-start space-y-2">
-          <label className="flex items-center">
-            <input type="checkbox" checked={includeUppercase} onChange={() => setIncludeUppercase(!includeUppercase)} />
-            <span className="ml-2 text-gray-700 dark:text-gray-300">Include Uppercase</span>
-          </label>
-          <label className="flex items-center">
-            <input type="checkbox" checked={includeNumbers} onChange={() => setIncludeNumbers(!includeNumbers)} />
-            <span className="ml-2 text-gray-700 dark:text-gray-300">Include Numbers</span>
-          </label>
-          <label className="flex items-center">
-            <input type="checkbox" checked={includeSymbols} onChange={() => setIncludeSymbols(!includeSymbols)} />
-            <span className="ml-2 text-gray-700 dark:text-gray-300">Include Symbols</span>
-          </label>
-        </div>
-
-        <button
-          onClick={generatePassword}
-          className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition"
-        >
-          Generate Password
-        </button>
-
-        {password && (
-          <div className="mt-4">
-            <input
-              type="text"
-              value={password}
-              readOnly
-              className="w-full p-2 text-center bg-gray-100 dark:bg-gray-700 rounded-md"
-            />
-            <button
-              onClick={copyToClipboard}
-              className="mt-2 bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition"
-            >
-              Copy to Clipboard
-            </button>
-          </div>
-        )}
+      <div className="mt-4 text-left">
+        <label className="block text-gray-700 dark:text-gray-300">Length: {length}</label>
+        <input
+          type="range"
+          min="6"
+          max="30"
+          value={length}
+          onChange={(e) => setLength(Number(e.target.value))}
+          className="w-full mt-2"
+        />
       </div>
-    // </div>
-    
+
+      <div className="mt-4 flex flex-col items-start space-y-2">
+        <label className="flex items-center">
+          <input type="checkbox" checked={includeUppercase} onChange={() => setIncludeUppercase(!includeUppercase)} />
+          <span className="ml-2 text-gray-700 dark:text-gray-300">Include Uppercase</span>
+        </label>
+        <label className="flex items-center">
+          <input type="checkbox" checked={includeNumbers} onChange={() => setIncludeNumbers(!includeNumbers)} />
+          <span className="ml-2 text-gray-700 dark:text-gray-300">Include Numbers</span>
+        </label>
+        <label className="flex items-center">
+          <input type="checkbox" checked={includeSymbols} onChange={() => setIncludeSymbols(!includeSymbols)} />
+          <span className="ml-2 text-gray-700 dark:text-gray-300">Include Symbols</span>
+        </label>
+      </div>
+
+      <button
+        onClick={generatePassword}
+        className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition"
+      >
+        Generate Password
+      </button>
+
+      {password && (
+        <div className="mt-4">
+          <input
+            type="text"
+            value={password}
+            readOnly
+            className="w-full p-2 text-center bg-gray-100 dark:bg-gray-700 rounded-md"
+          />
+          <button
+            onClick={copyToClipboard}
+            className="mt-2 bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition"
+          >
+            Copy to Clipboard
+          </button>
+        </div>
+      )}
+    </div>
   );
 }

@@ -26,27 +26,36 @@ test.describe('Navbar Tests', () => {
     });
 
     test('Mobile menu should open and close', async ({ page }) => {
-        // const menuButton = page.locator('button[aria-label="Open Menu"]');
-        
-        // Override to use a mobile viewport
+        // Set mobile viewport before navigation
         await page.setViewportSize({ width: 375, height: 812});
 
-        await page.waitForFunction(() => document.readyState === 'complete');
+        // Reload page with mobile viewport
+        await page.goto('/');
+
+        // Wait for page to be ready
+        await page.waitForLoadState('domcontentloaded');
+
         const menuButton = page.locator('button[aria-label="Open Menu"]');
         await expect(menuButton).toBeVisible();
 
+        // Open menu
         await menuButton.click();
 
+        // Wait for animation and verify menu is visible
         const mobileMenu = page.locator('.mobile-menu');
-        await expect(mobileMenu).toBeVisible();
+        await expect(mobileMenu).toBeVisible({ timeout: 1000 });
 
-        // await expect(page.locator('nav')).toContainText('Tools');
+        // Verify menu contains navigation links
+        await expect(mobileMenu).toContainText('About');
+        await expect(mobileMenu).toContainText('Tools');
+        await expect(mobileMenu).toContainText('Contact');
 
         // Close the menu
         const closeButton = page.locator('button[aria-label="Close Menu"]');
         await expect(closeButton).toBeVisible();
         await closeButton.click();
 
+        // Wait for exit animation and verify menu is hidden
         await page.waitForTimeout(500);
         await expect(mobileMenu).toBeHidden();
     });

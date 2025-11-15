@@ -68,54 +68,51 @@ export default function Converter() {
   if (!isClient) return null;
 
   return (
-    // <div className="converter">
-      <div className="max-w-md mx-auto p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg text-center">
-        <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Unit Converter</h2>
+    <div className="max-w-md mx-auto p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg text-center">
+      <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Unit Converter</h2>
 
-        <input
-          type="number"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          placeholder="Enter value"
-          className="w-full p-2 mt-4 border rounded-md text-gray-700 dark:text-gray-300 dark:bg-gray-700"
-        />
+      <input
+        type="number"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        placeholder="Enter value"
+        className="w-full p-2 mt-4 border rounded-md text-gray-700 dark:text-gray-300 dark:bg-gray-700"
+      />
 
-        <select
-          value={unit}
-          onChange={(e) => setUnit(e.target.value)}
-          className="w-full p-2 mt-4 border rounded-md text-gray-700 dark:text-gray-300 dark:bg-gray-700"
-        >
-          <optgroup label="Length">
-            <option value="meters">Meters → Feet</option>
-            <option value="feet">Feet → Meters</option>
-            <option value="centimeters">Centimeters → Inches</option>
-            <option value="inches">Inches → Centimeters</option>
-          </optgroup>
-          <optgroup label="Weight">
-            <option value="kilograms">Kilograms → Pounds</option>
-            <option value="pounds">Pounds → Kilograms</option>
-          </optgroup>
-          <optgroup label="Temperature">
-            <option value="celsius">Celsius → Fahrenheit</option>
-            <option value="fahrenheit">Fahrenheit → Celsius</option>
-          </optgroup>
-          <optgroup label="Volume">
-            <option value="liters">Liters → Gallons</option>
-            <option value="gallons">Gallons → Liters</option>
-          </optgroup>
-          <optgroup label="Speed">
-            <option value="kmph">Kilometers per Hour → Miles per Hour</option>
-            <option value="mph">Miles per Hour → Kilometers per Hour</option>
-          </optgroup>
-        </select>
+      <select
+        value={unit}
+        onChange={(e) => setUnit(e.target.value)}
+        className="w-full p-2 mt-4 border rounded-md text-gray-700 dark:text-gray-300 dark:bg-gray-700"
+      >
+        <optgroup label="Length">
+          <option value="meters">Meters → Feet</option>
+          <option value="feet">Feet → Meters</option>
+          <option value="centimeters">Centimeters → Inches</option>
+          <option value="inches">Inches → Centimeters</option>
+        </optgroup>
+        <optgroup label="Weight">
+          <option value="kilograms">Kilograms → Pounds</option>
+          <option value="pounds">Pounds → Kilograms</option>
+        </optgroup>
+        <optgroup label="Temperature">
+          <option value="celsius">Celsius → Fahrenheit</option>
+          <option value="fahrenheit">Fahrenheit → Celsius</option>
+        </optgroup>
+        <optgroup label="Volume">
+          <option value="liters">Liters → Gallons</option>
+          <option value="gallons">Gallons → Liters</option>
+        </optgroup>
+        <optgroup label="Speed">
+          <option value="kmph">Kilometers per Hour → Miles per Hour</option>
+          <option value="mph">Miles per Hour → Kilometers per Hour</option>
+        </optgroup>
+      </select>
 
-        {convertedValue && (
-          <div className="mt-4 p-2 bg-gray-100 dark:bg-gray-700 rounded-md text-lg font-semibold text-gray-800 dark:text-white">
-            {convertedValue}
-          </div>
-        )}
-      </div>
-    // </div>
-    
+      {convertedValue && (
+        <div className="mt-4 p-2 bg-gray-100 dark:bg-gray-700 rounded-md text-lg font-semibold text-gray-800 dark:text-white">
+          {convertedValue}
+        </div>
+      )}
+    </div>
   );
 }
