@@ -85,5 +85,30 @@ jobs:
           echo "Deployment URL: https://$DEPLOYMENT_URL"
           echo "BASE_URL=https://$DEPLOYMENT_URL" >> $GITHUB_ENV
 
+      - name: Verify deployment is accessible
+        run: |
+          echo "Verifying deployment is accessible..."
+          MAX_ATTEMPTS=12
+          ATTEMPT=0
+
+          while [ $ATTEMPT -lt $MAX_ATTEMPTS ]; do
+            HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" $BASE_URL)
+
+            if [ "$HTTP_STATUS" = "200" ]; then
+              echo "SUCCESS: Site is responding (HTTP $HTTP_STATUS)"
+              break
+            else
+              echo "  Waiting for site to respond... (HTTP $HTTP_STATUS, attempt $((ATTEMPT + 1))/$MAX_ATTEMPTS)"
+            fi
+
+            sleep 5
+            ATTEMPT=$((ATTEMPT + 1))
+          done
+
+          if [ $ATTEMPT -ge $MAX_ATTEMPTS ]; then
+            echo "ERROR: Site is not responding after deployment"
+            exit 1
+          fi
+
       - name: Run Playwright tests
         run: npx playwright test
