@@ -1,0 +1,223 @@
+{
+  "experience": [
+    {
+      "id": "exp-001",
+      "company": {
+        "name": "Tech Solutions Inc.",
+        "logo": "/logos/company-placeholder.png",
+        "website": "https://example.com",
+        "location": "Remote"
+      },
+      "role": "Senior SDET Engineer",
+      "type": "Full-time",
+      "startDate": "2022-01",
+      "endDate": null,
+      "current": true,
+      "description": "Lead test automation initiatives and quality assurance efforts for enterprise-level applications. Design and implement comprehensive test frameworks using Selenium, Playwright, and API testing tools.",
+      "achievements": [
+        {
+          "text": "Reduced regression testing time from 40 hours to 2 hours through comprehensive automation framework",
+          "metric": "95% reduction",
+          "type": "efficiency"
+        },
+        {
+          "text": "Increased code coverage from 45% to 85% across critical application modules",
+          "metric": "85% coverage",
+          "type": "quality"
+        },
+        {
+          "text": "Built CI/CD pipeline reducing deployment time by 60%",
+          "metric": "60% faster",
+          "type": "performance"
+        },
+        {
+          "text": "Mentored team of 3 junior QA engineers in automation best practices",
+          "metric": "3 engineers",
+          "type": "leadership"
+        }
+      ],
+      "technologies": [
+        {
+          "category": "Testing Frameworks",
+          "skills": ["Selenium WebDriver", "Playwright", "Cypress", "TestNG", "JUnit"]
+        },
+        {
+          "category": "Programming",
+          "skills": ["Python", "JavaScript", "Java"]
+        },
+        {
+          "category": "API Testing",
+          "skills": ["REST Assured", "Postman", "SoapUI"]
+        },
+        {
+          "category": "CI/CD",
+          "skills": ["GitHub Actions", "Azure Pipelines", "Jenkins"]
+        },
+        {
+          "category": "Tools",
+          "skills": ["Git", "Docker", "Jira", "TestRail"]
+        }
+      ],
+      "responsibilities": [
+        "Design and maintain automated test frameworks for web, API, and mobile applications",
+        "Collaborate with development teams to integrate testing into CI/CD pipelines",
+        "Perform code reviews and establish testing best practices",
+        "Create and maintain comprehensive test documentation",
+        "Participate in sprint planning and provide QA estimates"
+      ]
+    },
+    {
+      "id": "exp-002",
+      "company": {
+        "name": "Digital Innovations Ltd.",
+        "logo": "/logos/company-placeholder.png",
+        "website": "https://example.com",
+        "location": "New York, NY"
+      },
+      "role": "QA Automation Engineer",
+      "type": "Full-time",
+      "startDate": "2020-03",
+      "endDate": "2021-12",
+      "current": false,
+      "description": "Developed and maintained automated test suites for e-commerce platform serving 100K+ daily users. Implemented API testing framework and performance testing strategies.",
+      "achievements": [
+        {
+          "text": "Automated 500+ test cases reducing manual testing effort by 70%",
+          "metric": "500+ tests",
+          "type": "efficiency"
+        },
+        {
+          "text": "Identified and documented 200+ critical bugs before production release",
+          "metric": "200+ bugs",
+          "type": "quality"
+        },
+        {
+          "text": "Improved API test coverage to 90% across all microservices",
+          "metric": "90% coverage",
+          "type": "quality"
+        }
+      ],
+      "technologies": [
+        {
+          "category": "Testing Frameworks",
+          "skills": ["Selenium", "Robot Framework", "PyTest"]
+        },
+        {
+          "category": "Programming",
+          "skills": ["Python", "JavaScript"]
+        },
+        {
+          "category": "API Testing",
+          "skills": ["Postman", "REST Assured"]
+        },
+        {
+          "category": "Performance",
+          "skills": ["JMeter", "LoadRunner"]
+        },
+        {
+          "category": "Databases",
+          "skills": ["MySQL", "MongoDB"]
+        }
+      ],
+      "responsibilities": [
+        "Created and executed automated test scripts for web applications",
+        "Performed API testing and validation using Postman and REST Assured",
+        "Conducted performance and load testing using JMeter",
+        "Collaborated with cross-functional teams in Agile environment",
+        "Maintained test environments and test data management"
+      ]
+    },
+    {
+      "id": "exp-003",
+      "company": {
+        "name": "Software Development Corp.",
+        "logo": "/logos/company-placeholder.png",
+        "website": "https://example.com",
+        "location": "San Francisco, CA"
+      },
+      "role": "Junior QA Engineer",
+      "type": "Full-time",
+      "startDate": "2018-06",
+      "endDate": "2020-02",
+      "current": false,
+      "description": "Started career in quality assurance, focusing on manual testing and transitioning to automation. Contributed to testing web applications and mobile apps for financial services clients.",
+      "achievements": [
+        {
+          "text": "Executed 1000+ manual test cases with 98% accuracy rate",
+          "metric": "98% accuracy",
+          "type": "quality"
+        },
+        {
+          "text": "Transitioned 150 manual test cases to automated scripts",
+          "metric": "150 automated",
+          "type": "efficiency"
+        },
+        {
+          "text": "Reduced bug escape rate to production by 40%",
+          "metric": "40% reduction",
+          "type": "quality"
+        }
+      ],
+      "technologies": [
+        {
+          "category": "Testing Frameworks",
+          "skills": ["Selenium", "Appium"]
+        },
+        {
+          "category": "Programming",
+          "skills": ["Python", "Java"]
+        },
+        {
+          "category": "Tools",
+          "skills": ["Jira", "TestRail", "Git"]
+        },
+        {
+          "category": "Testing Types",
+          "skills": ["Manual Testing", "Regression Testing", "Smoke Testing"]
+        }
+      ],
+      "responsibilities": [
+        "Executed manual test cases for web and mobile applications",
+        "Created detailed bug reports and tracked issues to resolution",
+        "Participated in sprint planning and daily stand-ups",
+        "Learned automation frameworks and began automating test cases",
+        "Assisted in test environment setup and maintenance"
+      ]
+    }
+  ],
+  "summary": {
+    "totalYearsExperience": 6,
+    "totalCompanies": 3,
+    "totalProjects": 15,
+    "testCasesAutomated": 1000,
+    "codeCoverageImprovement": 40,
+    "bugsCaught": 500
+  },
+  "certifications": [
+    {
+      "name": "ISTQB Certified Tester - Foundation Level",
+      "issuer": "ISTQB",
+      "date": "2019-06",
+      "credentialId": "ISTQB-FL-12345",
+      "verificationUrl": null
+    },
+    {
+      "name": "AWS Certified Cloud Practitioner",
+      "issuer": "Amazon Web Services",
+      "date": "2021-03",
+      "credentialId": "AWS-CCP-67890",
+      "verificationUrl": null
+    }
+  ],
+  "education": [
+    {
+      "institution": "State University",
+      "degree": "Bachelor of Science in Computer Science",
+      "field": "Computer Science",
+      "startDate": "2014-09",
+      "endDate": "2018-05",
+      "gpa": "3.7",
+      "honors": ["Dean's List", "Honors Program"]
+    }
+  ]
+}
