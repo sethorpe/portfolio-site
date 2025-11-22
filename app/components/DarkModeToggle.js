@@ -35,6 +35,7 @@ export default function DarkModeToggle() {
     }
 
     localStorage.setItem("theme", newDarkMode ? "dark" : "light");
+    document.documentElement.setAttribute("data-theme", newDarkMode ? "dark" : "light");
   };
 
   return (

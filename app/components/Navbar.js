@@ -95,6 +95,7 @@ export default function Navbar() {
                 <button
                     onClick={() => setMenuOpen(!menuOpen)}
                     className="md:hidden text-gray-800 dark:text-white text-2xl ml-4"
+                    aria-label={menuOpen ? "Close Menu" : "Open Menu"}
                 >
                     {menuOpen ? <FiX /> : <FiMenu />}
                 </button>
@@ -108,7 +109,7 @@ export default function Navbar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.3, ease: "easeOut" }}
-                        className="md:hidden bg-white dark:bg-gray-800 absolute top-16 left-0 w-full flex flex-col items-center py-4 space-y-4 shadow-md"
+                        className="md:hidden bg-white dark:bg-gray-800 absolute top-16 left-0 w-full flex flex-col items-center py-4 space-y-4 shadow-md mobile-menu"
                     >
                         <Link href="/#about" className="text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600" onClick={() => setMenuOpen(false)}>
                             About

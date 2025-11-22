@@ -31,7 +31,7 @@ export default function Tools() {
                         <p className="text-gray-600 dark:text-gray-400 mt-2">
                             Generate secure random passwords with customizable options.
                         </p>
-                        <div className="mt-4">
+                        <div className="mt-4 password-generator">
                             <PasswordGenerator />
                         </div>
                     </motion.div>
@@ -40,7 +40,7 @@ export default function Tools() {
                         <p className="text-gray-600 dark:text-gray-400 mt-2">
                             Convert length, weight, and temperature between metric and imperial units.
                         </p>
-                        <div className="mt-4">
+                        <div className="mt-4 unit-converter">
                             <Converter />
                         </div>
                     </motion.div>
@@ -49,7 +49,7 @@ export default function Tools() {
                         <p className="text-gray-600 dark:text-gray-400 mt-2">
                             Convert between different currencies in real-time using the latest exchange rates.
                         </p>
-                        <div className="mt-4">
+                        <div className="mt-4 currency-converter">
                             <CurrencyConverter />
                         </div>
                     </motion.div>

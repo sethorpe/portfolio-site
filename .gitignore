@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# test files
+test-results/
+
+# temporary/debug files
+directory_structure.txt
+mobile-menu-test-fail.png
+SESSION_NOTES.md
