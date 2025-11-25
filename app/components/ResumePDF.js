@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Document, Page, Text, View, StyleSheet, Link } from "@react-pdf/renderer";
+import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
 
 // ATS-friendly styles - simple, clean, no fancy formatting
 const styles = StyleSheet.create({
@@ -18,6 +18,10 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 24,
     fontWeight: "bold",
+    marginBottom: 8,
+  },
+  title: {
+    fontSize: 12,
     marginBottom: 5,
   },
   contactInfo: {
@@ -75,19 +79,12 @@ const styles = StyleSheet.create({
     fontSize: 10,
     lineHeight: 1.3,
   },
-  techSection: {
-    marginTop: 5,
-    marginBottom: 8,
+  skillsGrid: {
+    marginBottom: 10,
   },
-  techCategory: {
-    fontSize: 9,
-    fontWeight: "bold",
-    marginBottom: 2,
-  },
-  techSkills: {
-    fontSize: 9,
-    marginBottom: 3,
-    marginLeft: 10,
+  skillText: {
+    fontSize: 10,
+    lineHeight: 1.5,
   },
   summaryText: {
     fontSize: 10,
@@ -98,7 +95,16 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   certItem: {
-    marginBottom: 5,
+    marginBottom: 8,
+  },
+  certName: {
+    fontSize: 10,
+    fontWeight: "bold",
+    marginBottom: 2,
+  },
+  certDetails: {
+    fontSize: 9,
+    color: "#666",
   },
 });
 
@@ -111,15 +117,49 @@ export default function ResumePDF({ experienceData }) {
     return date.toLocaleDateString("en-US", { year: "numeric", month: "short" });
   };
 
+  // Consolidate all skills from all jobs into unique list
+  const getAllSkills = () => {
+    const skillsMap = new Map();
+
+    experienceData.experience.forEach(job => {
+      if (job.technologies) {
+        job.technologies.forEach(techGroup => {
+          if (!skillsMap.has(techGroup.category)) {
+            skillsMap.set(techGroup.category, new Set());
+          }
+          techGroup.skills.forEach(skill => {
+            skillsMap.get(techGroup.category).add(skill);
+          });
+        });
+      }
+    });
+
+    // Convert to array format
+    const consolidated = [];
+    skillsMap.forEach((skills, category) => {
+      consolidated.push({
+        category,
+        skills: Array.from(skills).sort()
+      });
+    });
+
+    return consolidated;
+  };
+
+  const consolidatedSkills = getAllSkills();
+
   return (
     <Document>
       <Page size="A4" style={styles.page}>
         {/* Header */}
         <View style={styles.header}>
           <Text style={styles.name}>Segun Thorpe</Text>
-          <Text style={styles.contactInfo}>Software Development Engineer in Test (SDET)</Text>
+          <Text style={styles.title}>Software Development Engineer in Test (SDET)</Text>
           <Text style={styles.contactInfo}>
-            Email: your.email@example.com | LinkedIn: linkedin.com/in/yourprofile
+            LinkedIn: linkedin.com/in/s-thorpe
+          </Text>
+          <Text style={styles.contactInfo}>
+            Portfolio: [Your portfolio URL here]
           </Text>
         </View>
 
@@ -130,9 +170,24 @@ export default function ResumePDF({ experienceData }) {
             Experienced SDET with {experienceData.summary.totalYearsExperience}+ years of testing
             experience, specializing in test automation using C#, Python, and Java. Delivered $
             {(experienceData.summary.costSavingsDelivered / 1000).toFixed(0)}K+ in cost savings
-            through automation initiatives. Strong financial services domain expertise in banking
+            through automation initiatives and {experienceData.summary.automationHoursSaved.toLocaleString()}+
+            hours saved via automation. Strong financial services domain expertise in banking
             systems, payment processing, and regulatory compliance.
           </Text>
+        </View>
+
+        {/* Consolidated Technical Skills */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Technical Skills</Text>
+          <View style={styles.skillsGrid}>
+            {consolidatedSkills.map((skillGroup, i) => (
+              <View key={i} style={{ marginBottom: 6 }}>
+                <Text style={styles.skillText}>
+                  <Text style={{ fontWeight: "bold" }}>{skillGroup.category}:</Text> {skillGroup.skills.join(", ")}
+                </Text>
+              </View>
+            ))}
+          </View>
         </View>
 
         {/* Professional Experience */}
@@ -145,7 +200,7 @@ export default function ResumePDF({ experienceData }) {
               <View style={styles.jobHeader}>
                 <Text style={styles.jobTitle}>{job.role}</Text>
                 <Text style={styles.company}>
-                  {job.company.name} | {job.company.location}
+                  {job.company.name}
                 </Text>
                 <Text style={styles.jobMeta}>
                   {formatDate(job.startDate)} - {job.current ? "Present" : formatDate(job.endDate)}{" "}
@@ -162,18 +217,6 @@ export default function ResumePDF({ experienceData }) {
                       <Text style={styles.bulletText}>
                         {achievement.text} ({achievement.metric})
                       </Text>
-                    </View>
-                  ))}
-                </View>
-              )}
-
-              {/* Technologies */}
-              {job.technologies && job.technologies.length > 0 && (
-                <View style={styles.techSection}>
-                  {job.technologies.map((techGroup, i) => (
-                    <View key={i}>
-                      <Text style={styles.techCategory}>{techGroup.category}:</Text>
-                      <Text style={styles.techSkills}>{techGroup.skills.join(", ")}</Text>
                     </View>
                   ))}
                 </View>
@@ -203,8 +246,9 @@ export default function ResumePDF({ experienceData }) {
             <Text style={styles.sectionTitle}>Certifications</Text>
             {experienceData.certifications.map((cert, index) => (
               <View key={index} style={styles.certItem}>
-                <Text style={styles.bulletText}>
-                  {cert.name} - {cert.issuer} ({cert.date})
+                <Text style={styles.certName}>{cert.name}</Text>
+                <Text style={styles.certDetails}>
+                  {cert.issuer} | {cert.date}
                 </Text>
               </View>
             ))}

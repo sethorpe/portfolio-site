@@ -3,10 +3,10 @@
     {
       "id": "exp-001",
       "company": {
-        "name": "First Citizens Bank",
-        "logo": "/logos/fcb-logo.png",
-        "website": "https://www.firstcitizens.com",
-        "location": "Remote"
+        "name": "Major Financial Institution",
+        "logo": null,
+        "website": null,
+        "location": "Remote, United States"
       },
       "role": "Software Development Engineer in Test",
       "type": "Contract",
@@ -69,10 +69,10 @@
     {
       "id": "exp-002",
       "company": {
-        "name": "TransLink",
-        "logo": "/logos/translink-logo.png",
-        "website": "https://www.translink.ca",
-        "location": "Vancouver, BC"
+        "name": "Transportation Authority",
+        "logo": null,
+        "website": null,
+        "location": "Canada"
       },
       "role": "Software QA Analyst",
       "type": "Full-time Temporary",
@@ -126,10 +126,10 @@
     {
       "id": "exp-003",
       "company": {
-        "name": "First Horizon Bank",
-        "logo": "/logos/fhb-logo.png",
-        "website": "https://www.firsthorizon.com",
-        "location": "Memphis, TN"
+        "name": "Regional Bank",
+        "logo": null,
+        "website": null,
+        "location": "United States"
       },
       "role": "QA Team Lead",
       "type": "Contract",
@@ -179,10 +179,10 @@
     {
       "id": "exp-004",
       "company": {
-        "name": "M&T Bank",
-        "logo": "/logos/mtb-logo.png",
-        "website": "https://www.mtb.com",
-        "location": "Buffalo, NY"
+        "name": "National Bank",
+        "logo": null,
+        "website": null,
+        "location": "United States"
       },
       "role": "QA Team Lead",
       "type": "Contract",
@@ -236,10 +236,10 @@
     {
       "id": "exp-005",
       "company": {
-        "name": "Fifth Third Bank",
-        "logo": "/logos/53-logo.png",
-        "website": "https://www.53.com",
-        "location": "Cincinnati, OH"
+        "name": "Major Bank",
+        "logo": null,
+        "website": null,
+        "location": "United States"
       },
       "role": "QA Team Lead",
       "type": "Contract",
