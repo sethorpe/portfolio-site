@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
+import ExperienceTimeline from "../components/ExperienceTimeline";
 
 export default function Experience() {
   const [experienceData, setExperienceData] = useState(null);
@@ -114,111 +115,7 @@ export default function Experience() {
               </motion.div>
 
               {/* Timeline Items */}
-              <div className="relative border-l-4 border-blue-600 dark:border-blue-400 ml-4">
-                {experienceData.experience.map((job, index) => (
-                  <motion.div
-                    key={job.id}
-                    className="mb-10 ml-8"
-                    initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                  >
-                    {/* Timeline Dot */}
-                    <div className="absolute w-4 h-4 bg-blue-600 dark:bg-blue-400 rounded-full -left-2.5 border-4 border-gray-100 dark:border-gray-900"></div>
-
-                    {/* Job Card */}
-                    <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-                      {/* Job Header */}
-                      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                        <div>
-                          <h3 className="text-2xl font-bold text-gray-800 dark:text-white">
-                            {job.role}
-                          </h3>
-                          <p className="text-lg text-blue-600 dark:text-blue-400 font-semibold">
-                            {job.company.name}
-                          </p>
-                        </div>
-                        <div className="text-sm text-gray-600 dark:text-gray-300 mt-2 md:mt-0">
-                          <span className="inline-block bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded-full">
-                            {new Date(job.startDate).toLocaleDateString("en-US", {
-                              year: "numeric",
-                              month: "short",
-                            })}{" "}
-                            -{" "}
-                            {job.current
-                              ? "Present"
-                              : new Date(job.endDate).toLocaleDateString("en-US", {
-                                  year: "numeric",
-                                  month: "short",
-                                })}
-                          </span>
-                        </div>
-                      </div>
-
-                      {/* Description */}
-                      <p className="text-gray-700 dark:text-gray-300 mb-4">
-                        {job.description}
-                      </p>
-
-                      {/* Achievements */}
-                      {job.achievements && job.achievements.length > 0 && (
-                        <div className="mb-4">
-                          <h4 className="text-sm font-semibold text-gray-800 dark:text-white mb-2">
-                            Key Achievements:
-                          </h4>
-                          <ul className="space-y-2">
-                            {job.achievements.map((achievement, i) => (
-                              <li
-                                key={i}
-                                className="flex items-start text-gray-700 dark:text-gray-300"
-                              >
-                                <span className="text-green-600 dark:text-green-400 mr-2">
-                                  ✓
-                                </span>
-                                <span>
-                                  {achievement.text}{" "}
-                                  <span className="font-semibold text-blue-600 dark:text-blue-400">
-                                    ({achievement.metric})
-                                  </span>
-                                </span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-
-                      {/* Technologies */}
-                      {job.technologies && job.technologies.length > 0 && (
-                        <div>
-                          <h4 className="text-sm font-semibold text-gray-800 dark:text-white mb-2">
-                            Technologies & Tools:
-                          </h4>
-                          <div className="space-y-2">
-                            {job.technologies.map((techGroup, i) => (
-                              <div key={i}>
-                                <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">
-                                  {techGroup.category}:
-                                </p>
-                                <div className="flex flex-wrap gap-2">
-                                  {techGroup.skills.map((skill, j) => (
-                                    <span
-                                      key={j}
-                                      className="text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded"
-                                    >
-                                      {skill}
-                                    </span>
-                                  ))}
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
+              <ExperienceTimeline experiences={experienceData.experience} />
 
               {/* Download Resume Button */}
               <motion.div

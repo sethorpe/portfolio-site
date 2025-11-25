@@ -8,8 +8,8 @@
         "website": "https://www.firstcitizens.com",
         "location": "Remote"
       },
-      "role": "Data Engineer / SDET",
-      "type": "Full-time",
+      "role": "Software Development Engineer in Test",
+      "type": "Contract",
       "startDate": "2023-03",
       "endDate": null,
       "current": true,
@@ -39,11 +39,11 @@
       "technologies": [
         {
           "category": "Programming",
-          "skills": ["Python", "C#", "SQL", "Java"]
+          "skills": ["Python", "Java", "SQL"]
         },
         {
           "category": "Automation & Testing",
-          "skills": ["Selenium WebDriver", "RestSharp", "NUnit", "SikuliX", "PyTest"]
+          "skills": ["Selenium WebDriver", "SikuliX", "TestNG"]
         },
         {
           "category": "Data & Databases",
@@ -55,7 +55,7 @@
         },
         {
           "category": "Tools & Platforms",
-          "skills": ["Azure DevOps", "Git", "Visual Studio", "Postman", "JIRA"]
+          "skills": ["Azure DevOps", "Git", "VS Code", "Postman", "JIRA", "Confluence", "Jenkins"]
         }
       ],
       "responsibilities": [
@@ -75,7 +75,7 @@
         "location": "Vancouver, BC"
       },
       "role": "Software QA Analyst",
-      "type": "Full-time",
+      "type": "Full-time Temporary",
       "startDate": "2021-07",
       "endDate": "2024-12",
       "current": false,
@@ -100,19 +100,19 @@
       "technologies": [
         {
           "category": "Programming",
-          "skills": ["C#", "SQL"]
+          "skills": ["C#"]
         },
         {
           "category": "Testing Frameworks",
-          "skills": ["Selenium WebDriver", "NUnit", "RestSharp", "Applitools Eyes"]
+          "skills": ["Selenium WebDriver", "NUnit", "RestSharp"]
         },
         {
           "category": "CI/CD",
-          "skills": ["Azure Pipelines", "Azure DevOps"]
+          "skills": ["Azure Pipelines"]
         },
         {
           "category": "Tools",
-          "skills": ["Visual Studio", "Git", "Postman", "JIRA"]
+          "skills": ["Azure DevOps", "Applitools", "Visual Studio", "Git", "Postman", "Swagger"]
         }
       ],
       "responsibilities": [
@@ -132,7 +132,7 @@
         "location": "Memphis, TN"
       },
       "role": "QA Team Lead",
-      "type": "Full-time",
+      "type": "Contract",
       "startDate": "2018-03",
       "endDate": "2019-07",
       "current": false,
@@ -157,7 +157,7 @@
       "technologies": [
         {
           "category": "Testing",
-          "skills": ["Manual Testing", "Integration Testing", "EMV Testing"]
+          "skills": ["Manual Testing", "Integration Testing", "Regression Testing"]
         },
         {
           "category": "Banking Systems",
@@ -165,7 +165,7 @@
         },
         {
           "category": "Tools",
-          "skills": ["HP ALM", "JIRA"]
+          "skills": ["HP ALM"]
         }
       ],
       "responsibilities": [
@@ -185,7 +185,7 @@
         "location": "Buffalo, NY"
       },
       "role": "QA Team Lead",
-      "type": "Full-time",
+      "type": "Contract",
       "startDate": "2015-08",
       "endDate": "2018-01",
       "current": false,
@@ -218,11 +218,11 @@
         },
         {
           "category": "Banking Systems",
-          "skills": ["ATM Systems", "XFS Protocols", "Banking Applications"]
+          "skills": ["ATM Systems", "Banking Applications"]
         },
         {
           "category": "Tools",
-          "skills": ["HP ALM", "JIRA"]
+          "skills": ["HP ALM"]
         }
       ],
       "responsibilities": [
@@ -242,7 +242,7 @@
         "location": "Cincinnati, OH"
       },
       "role": "QA Team Lead",
-      "type": "Full-time",
+      "type": "Contract",
       "startDate": "2011-11",
       "endDate": "2015-07",
       "current": false,
@@ -271,7 +271,7 @@
         },
         {
           "category": "Banking Systems",
-          "skills": ["Anti-Fraud Systems", "Deployment Processes", "Banking Applications"]
+          "skills": ["Anti-Fraud Systems", "Banking Applications"]
         },
         {
           "category": "Tools",
@@ -313,11 +313,7 @@
     {
       "institution": "Cameron University",
       "degree": "Bachelor of Science",
-      "field": "Computer Information Systems",
-      "startDate": "2007",
-      "endDate": "2011",
-      "gpa": null,
-      "honors": []
+      "field": "Computer Information Systems"
     }
   ]
 }
