@@ -89,26 +89,26 @@ export default function Experience() {
                 </div>
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md text-center">
                   <div className="text-3xl font-bold text-green-600 dark:text-green-400">
-                    {experienceData.summary.testCasesAutomated}+
+                    ${(experienceData.summary.costSavingsDelivered / 1000).toFixed(0)}K+
                   </div>
                   <div className="text-sm text-gray-600 dark:text-gray-300 mt-2">
-                    Tests Automated
+                    Cost Savings Delivered
                   </div>
                 </div>
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md text-center">
                   <div className="text-3xl font-bold text-purple-600 dark:text-purple-400">
-                    {experienceData.summary.totalProjects}+
+                    {experienceData.summary.automationHoursSaved.toLocaleString()}+
                   </div>
                   <div className="text-sm text-gray-600 dark:text-gray-300 mt-2">
-                    Projects Completed
+                    Hours Saved via Automation
                   </div>
                 </div>
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md text-center">
                   <div className="text-3xl font-bold text-orange-600 dark:text-orange-400">
-                    {experienceData.summary.bugsCaught}+
+                    {experienceData.summary.criticalProjectsDelivered}+
                   </div>
                   <div className="text-sm text-gray-600 dark:text-gray-300 mt-2">
-                    Bugs Caught
+                    Critical Projects
                   </div>
                 </div>
               </motion.div>

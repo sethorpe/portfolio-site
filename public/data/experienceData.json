@@ -3,221 +3,321 @@
     {
       "id": "exp-001",
       "company": {
-        "name": "Tech Solutions Inc.",
-        "logo": "/logos/company-placeholder.png",
-        "website": "https://example.com",
+        "name": "First Citizens Bank",
+        "logo": "/logos/fcb-logo.png",
+        "website": "https://www.firstcitizens.com",
         "location": "Remote"
       },
-      "role": "Senior SDET Engineer",
+      "role": "Data Engineer / SDET",
       "type": "Full-time",
-      "startDate": "2022-01",
+      "startDate": "2023-03",
       "endDate": null,
       "current": true,
-      "description": "Lead test automation initiatives and quality assurance efforts for enterprise-level applications. Design and implement comprehensive test frameworks using Selenium, Playwright, and API testing tools.",
+      "description": "Build Python-based automation infrastructure for test data provisioning and environment support. Develop mainframe automation for loan accounts, credit/debit cards, and customer data with PII masking for regulatory compliance. Deliver automated regression testing for regulatory compliance and financial reconciliation processes.",
       "achievements": [
         {
-          "text": "Reduced regression testing time from 40 hours to 2 hours through comprehensive automation framework",
-          "metric": "95% reduction",
+          "text": "Accelerated system migration testing by 80% through comprehensive Python data generation solution",
+          "metric": "$75K+ savings",
           "type": "efficiency"
         },
         {
-          "text": "Increased code coverage from 45% to 85% across critical application modules",
-          "metric": "85% coverage",
-          "type": "quality"
+          "text": "Reduced manual testing by 20+ hours weekly through automated regulatory compliance testing",
+          "metric": "$50K+ annual savings",
+          "type": "cost-savings"
         },
         {
-          "text": "Built CI/CD pipeline reducing deployment time by 60%",
-          "metric": "60% faster",
-          "type": "performance"
+          "text": "Delivered automated financial reconciliation test suites",
+          "metric": "$75K+ annual savings",
+          "type": "cost-savings"
         },
         {
-          "text": "Mentored team of 3 junior QA engineers in automation best practices",
-          "metric": "3 engineers",
-          "type": "leadership"
+          "text": "Provided intensive 6-month test data support for IVR system migration with aggressive timelines",
+          "metric": "Critical project delivery",
+          "type": "delivery"
         }
       ],
       "technologies": [
         {
-          "category": "Testing Frameworks",
-          "skills": ["Selenium WebDriver", "Playwright", "Cypress", "TestNG", "JUnit"]
-        },
-        {
           "category": "Programming",
-          "skills": ["Python", "JavaScript", "Java"]
+          "skills": ["Python", "C#", "SQL", "Java"]
         },
         {
-          "category": "API Testing",
-          "skills": ["REST Assured", "Postman", "SoapUI"]
+          "category": "Automation & Testing",
+          "skills": ["Selenium WebDriver", "RestSharp", "NUnit", "SikuliX", "PyTest"]
         },
         {
-          "category": "CI/CD",
-          "skills": ["GitHub Actions", "Azure Pipelines", "Jenkins"]
+          "category": "Data & Databases",
+          "skills": ["pandas", "Faker library", "SQL Server", "DB2", "DbVisualizer"]
         },
         {
-          "category": "Tools",
-          "skills": ["Git", "Docker", "Jira", "TestRail"]
+          "category": "Specialized Systems",
+          "skills": ["Mainframe Applications", "BlueZone Client", "Core Banking Systems"]
+        },
+        {
+          "category": "Tools & Platforms",
+          "skills": ["Azure DevOps", "Git", "Visual Studio", "Postman", "JIRA"]
         }
       ],
       "responsibilities": [
-        "Design and maintain automated test frameworks for web, API, and mobile applications",
-        "Collaborate with development teams to integrate testing into CI/CD pipelines",
-        "Perform code reviews and establish testing best practices",
-        "Create and maintain comprehensive test documentation",
-        "Participate in sprint planning and provide QA estimates"
+        "Build Python automation infrastructure for test data provisioning across project teams",
+        "Develop mainframe backend automation with PII masking for compliance",
+        "Create mock data generation solutions with configurable parameters and reproducible datasets",
+        "Implement automated regression testing for regulatory compliance using C# + Selenium",
+        "Provide automated backup and restoration services for environment refresh workflows"
       ]
     },
     {
       "id": "exp-002",
       "company": {
-        "name": "Digital Innovations Ltd.",
-        "logo": "/logos/company-placeholder.png",
-        "website": "https://example.com",
-        "location": "New York, NY"
+        "name": "TransLink",
+        "logo": "/logos/translink-logo.png",
+        "website": "https://www.translink.ca",
+        "location": "Vancouver, BC"
       },
-      "role": "QA Automation Engineer",
+      "role": "Software QA Analyst",
       "type": "Full-time",
-      "startDate": "2020-03",
-      "endDate": "2021-12",
+      "startDate": "2021-07",
+      "endDate": "2024-12",
       "current": false,
-      "description": "Developed and maintained automated test suites for e-commerce platform serving 100K+ daily users. Implemented API testing framework and performance testing strategies.",
+      "description": "Designed and implemented comprehensive API testing strategy for digital transformation initiative. Developed automated test scripts using C# + Selenium WebDriver + NUnit with Applitools Eyes visual validation for SaaS payroll system. Contributed to QA process improvements and testing environment management.",
       "achievements": [
         {
-          "text": "Automated 500+ test cases reducing manual testing effort by 70%",
-          "metric": "500+ tests",
-          "type": "efficiency"
+          "text": "Designed comprehensive API testing for 5 RESTful APIs with CI/CD integration",
+          "metric": "5 APIs automated",
+          "type": "delivery"
         },
         {
-          "text": "Identified and documented 200+ critical bugs before production release",
-          "metric": "200+ bugs",
+          "text": "Developed automated test scripts with visual validation for SaaS payroll system",
+          "metric": "Full automation coverage",
           "type": "quality"
         },
         {
-          "text": "Improved API test coverage to 90% across all microservices",
-          "metric": "90% coverage",
+          "text": "Contributed to QA process improvements and defect prevention methodologies",
+          "metric": "Process optimization",
           "type": "quality"
         }
       ],
       "technologies": [
         {
-          "category": "Testing Frameworks",
-          "skills": ["Selenium", "Robot Framework", "PyTest"]
-        },
-        {
           "category": "Programming",
-          "skills": ["Python", "JavaScript"]
+          "skills": ["C#", "SQL"]
         },
         {
-          "category": "API Testing",
-          "skills": ["Postman", "REST Assured"]
+          "category": "Testing Frameworks",
+          "skills": ["Selenium WebDriver", "NUnit", "RestSharp", "Applitools Eyes"]
         },
         {
-          "category": "Performance",
-          "skills": ["JMeter", "LoadRunner"]
+          "category": "CI/CD",
+          "skills": ["Azure Pipelines", "Azure DevOps"]
         },
         {
-          "category": "Databases",
-          "skills": ["MySQL", "MongoDB"]
+          "category": "Tools",
+          "skills": ["Visual Studio", "Git", "Postman", "JIRA"]
         }
       ],
       "responsibilities": [
-        "Created and executed automated test scripts for web applications",
-        "Performed API testing and validation using Postman and REST Assured",
-        "Conducted performance and load testing using JMeter",
-        "Collaborated with cross-functional teams in Agile environment",
-        "Maintained test environments and test data management"
+        "Design and implement API testing strategy for digital transformation initiative",
+        "Develop automated test scripts using C# + Selenium WebDriver + NUnit",
+        "Integrate Applitools Eyes for visual validation testing",
+        "Implement CI/CD automation with Azure Pipelines",
+        "Contribute to QA process improvements and testing environment management"
       ]
     },
     {
       "id": "exp-003",
       "company": {
-        "name": "Software Development Corp.",
-        "logo": "/logos/company-placeholder.png",
-        "website": "https://example.com",
-        "location": "San Francisco, CA"
+        "name": "First Horizon Bank",
+        "logo": "/logos/fhb-logo.png",
+        "website": "https://www.firsthorizon.com",
+        "location": "Memphis, TN"
       },
-      "role": "Junior QA Engineer",
+      "role": "QA Team Lead",
       "type": "Full-time",
-      "startDate": "2018-06",
-      "endDate": "2020-02",
+      "startDate": "2018-03",
+      "endDate": "2019-07",
       "current": false,
-      "description": "Started career in quality assurance, focusing on manual testing and transitioning to automation. Contributed to testing web applications and mobile apps for financial services clients.",
+      "description": "Led critical systems migration testing for bank merger involving 500K debit card conversion and payment network integration with aggressive 4-month deadline. Managed EMV integration testing for ATM terminals, achieving payment network certification through vendor collaboration.",
       "achievements": [
         {
-          "text": "Executed 1000+ manual test cases with 98% accuracy rate",
-          "metric": "98% accuracy",
+          "text": "Successfully delivered bank merger testing for 500K debit card conversion",
+          "metric": "500K cards migrated",
+          "type": "delivery"
+        },
+        {
+          "text": "Achieved payment network certification through EMV integration testing for ATM terminals",
+          "metric": "Payment certification",
+          "type": "delivery"
+        },
+        {
+          "text": "Met aggressive 4-month go-live deadline for critical payment network integration",
+          "metric": "On-time delivery",
+          "type": "delivery"
+        }
+      ],
+      "technologies": [
+        {
+          "category": "Testing",
+          "skills": ["Manual Testing", "Integration Testing", "EMV Testing"]
+        },
+        {
+          "category": "Banking Systems",
+          "skills": ["Payment Networks", "ATM Systems", "Debit Card Systems"]
+        },
+        {
+          "category": "Tools",
+          "skills": ["HP ALM", "JIRA"]
+        }
+      ],
+      "responsibilities": [
+        "Lead testing for bank merger and debit card conversion project",
+        "Manage EMV integration testing for ATM terminal certification",
+        "Coordinate with payment network vendors for integration validation",
+        "Ensure compliance with payment industry standards and regulations",
+        "Deliver testing under aggressive timeline constraints"
+      ]
+    },
+    {
+      "id": "exp-004",
+      "company": {
+        "name": "M&T Bank",
+        "logo": "/logos/mtb-logo.png",
+        "website": "https://www.mtb.com",
+        "location": "Buffalo, NY"
+      },
+      "role": "QA Team Lead",
+      "type": "Full-time",
+      "startDate": "2015-08",
+      "endDate": "2018-01",
+      "current": false,
+      "description": "Led comprehensive manual testing for banking applications while establishing standardized testing procedures and knowledge base. Developed automated XFS log archiving solution delivering significant cost savings through elimination of unnecessary service calls.",
+      "achievements": [
+        {
+          "text": "Developed automated XFS log archiving solution eliminating unnecessary service calls",
+          "metric": "$200K annual savings",
+          "type": "cost-savings"
+        },
+        {
+          "text": "Established standardized testing procedures and comprehensive knowledge base",
+          "metric": "Process standardization",
           "type": "quality"
         },
         {
-          "text": "Transitioned 150 manual test cases to automated scripts",
-          "metric": "150 automated",
-          "type": "efficiency"
+          "text": "Led quality assurance for critical banking applications",
+          "metric": "Quality leadership",
+          "type": "leadership"
+        }
+      ],
+      "technologies": [
+        {
+          "category": "Testing",
+          "skills": ["Manual Testing", "Regression Testing", "System Testing"]
         },
         {
-          "text": "Reduced bug escape rate to production by 40%",
-          "metric": "40% reduction",
+          "category": "Automation",
+          "skills": ["Process Automation", "Log Management"]
+        },
+        {
+          "category": "Banking Systems",
+          "skills": ["ATM Systems", "XFS Protocols", "Banking Applications"]
+        },
+        {
+          "category": "Tools",
+          "skills": ["HP ALM", "JIRA"]
+        }
+      ],
+      "responsibilities": [
+        "Lead manual testing efforts for banking applications",
+        "Develop process automation solutions for operational efficiency",
+        "Establish and maintain testing procedures and documentation",
+        "Build knowledge base for team enablement",
+        "Manage remote log accessibility and archiving processes"
+      ]
+    },
+    {
+      "id": "exp-005",
+      "company": {
+        "name": "Fifth Third Bank",
+        "logo": "/logos/53-logo.png",
+        "website": "https://www.53.com",
+        "location": "Cincinnati, OH"
+      },
+      "role": "QA Team Lead",
+      "type": "Full-time",
+      "startDate": "2011-11",
+      "endDate": "2015-07",
+      "current": false,
+      "description": "Advanced from entry-level QA tester to Team Lead and Subject Matter Expert over 4 years. Contributed to cost optimization initiatives delivering $2M+ savings through automated deployment processes and anti-fraud solutions. Built foundation of testing expertise in banking domain.",
+      "achievements": [
+        {
+          "text": "Advanced from entry-level tester to Team Lead/SME in 4 years",
+          "metric": "Career progression",
+          "type": "leadership"
+        },
+        {
+          "text": "Contributed to automated deployment processes and anti-fraud solutions",
+          "metric": "$2M+ cost savings",
+          "type": "cost-savings"
+        },
+        {
+          "text": "Built expertise in banking systems testing and quality assurance",
+          "metric": "Domain expertise",
           "type": "quality"
         }
       ],
       "technologies": [
         {
-          "category": "Testing Frameworks",
-          "skills": ["Selenium", "Appium"]
+          "category": "Testing",
+          "skills": ["Manual Testing", "System Testing", "UAT"]
         },
         {
-          "category": "Programming",
-          "skills": ["Python", "Java"]
+          "category": "Banking Systems",
+          "skills": ["Anti-Fraud Systems", "Deployment Processes", "Banking Applications"]
         },
         {
           "category": "Tools",
-          "skills": ["Jira", "TestRail", "Git"]
-        },
-        {
-          "category": "Testing Types",
-          "skills": ["Manual Testing", "Regression Testing", "Smoke Testing"]
+          "skills": ["HP ALM", "Test Management Tools"]
         }
       ],
       "responsibilities": [
-        "Executed manual test cases for web and mobile applications",
-        "Created detailed bug reports and tracked issues to resolution",
-        "Participated in sprint planning and daily stand-ups",
-        "Learned automation frameworks and began automating test cases",
-        "Assisted in test environment setup and maintenance"
+        "Execute comprehensive manual testing for banking applications",
+        "Support automated deployment process implementations",
+        "Contribute to anti-fraud solution testing and validation",
+        "Develop subject matter expertise in banking domain",
+        "Mentor junior team members and share knowledge"
       ]
     }
   ],
   "summary": {
-    "totalYearsExperience": 6,
-    "totalCompanies": 3,
-    "totalProjects": 15,
-    "testCasesAutomated": 1000,
-    "codeCoverageImprovement": 40,
-    "bugsCaught": 500
+    "totalYearsExperience": 13,
+    "costSavingsDelivered": 425000,
+    "automationHoursSaved": 1040,
+    "criticalProjectsDelivered": 8
   },
   "certifications": [
     {
-      "name": "ISTQB Certified Tester - Foundation Level",
-      "issuer": "ISTQB",
-      "date": "2019-06",
-      "credentialId": "ISTQB-FL-12345",
+      "name": "AWS Certified Solutions Architect Associate",
+      "issuer": "Amazon Web Services",
+      "date": "2019",
+      "credentialId": null,
       "verificationUrl": null
     },
     {
-      "name": "AWS Certified Cloud Practitioner",
-      "issuer": "Amazon Web Services",
-      "date": "2021-03",
-      "credentialId": "AWS-CCP-67890",
+      "name": "ISTQB Certified Tester Foundation Level",
+      "issuer": "ISTQB",
+      "date": "2017",
+      "credentialId": null,
       "verificationUrl": null
     }
   ],
   "education": [
     {
-      "institution": "State University",
-      "degree": "Bachelor of Science in Computer Science",
-      "field": "Computer Science",
-      "startDate": "2014-09",
-      "endDate": "2018-05",
-      "gpa": "3.7",
-      "honors": ["Dean's List", "Honors Program"]
+      "institution": "Cameron University",
+      "degree": "Bachelor of Science",
+      "field": "Computer Information Systems",
+      "startDate": "2007",
+      "endDate": "2011",
+      "gpa": null,
+      "honors": []
     }
   ]
 }
