@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 import ExperienceTimeline from "../components/ExperienceTimeline";
+import DownloadResumeButton from "../components/DownloadResumeButton";
 
 export default function Experience() {
   const [experienceData, setExperienceData] = useState(null);
@@ -124,12 +125,7 @@ export default function Experience() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                <button
-                  className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-colors"
-                  onClick={() => alert("PDF download feature coming soon!")}
-                >
-                  Download Resume (PDF)
-                </button>
+                <DownloadResumeButton experienceData={experienceData} />
               </motion.div>
             </div>
           )}
