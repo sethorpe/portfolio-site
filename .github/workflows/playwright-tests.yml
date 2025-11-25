@@ -29,34 +29,50 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Wait for deployment to be ready
+      - name: Wait for Vercel deployment and get preview URL
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
         run: |
-          BASE_URL="https://portfolio-site-git-add-ui-tests-seyi-thorpes-projects.vercel.app"
-          echo "Waiting for deployment at $BASE_URL..."
+          echo "Fetching deployment URL from Vercel API..."
+          echo "Commit SHA: ${{ github.sha }}"
 
           MAX_ATTEMPTS=36  # 3 minutes max (36 x 5s)
           ATTEMPT=0
+          DEPLOYMENT_URL=""
 
           while [ $ATTEMPT -lt $MAX_ATTEMPTS ]; do
-            HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" $BASE_URL)
+            # Query Vercel API for deployments matching this commit
+            RESPONSE=$(curl -s -H "Authorization: Bearer $VERCEL_TOKEN" \
+              "https://api.vercel.com/v6/deployments?projectId=$VERCEL_PROJECT_ID&gitSource.sha=${{ github.sha }}&limit=1")
 
-            if [ "$HTTP_STATUS" = "200" ]; then
-              echo "SUCCESS: Deployment is ready (HTTP $HTTP_STATUS)"
-              break
+            # Extract the URL from the response
+            DEPLOYMENT_URL=$(echo "$RESPONSE" | grep -o '"url":"[^"]*' | head -1 | cut -d'"' -f4)
+
+            if [ -n "$DEPLOYMENT_URL" ]; then
+              echo "Found deployment URL: https://$DEPLOYMENT_URL"
+              BASE_URL="https://$DEPLOYMENT_URL"
+
+              # Wait for deployment to be ready
+              HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$BASE_URL")
+
+              if [ "$HTTP_STATUS" = "200" ]; then
+                echo "SUCCESS: Deployment is ready (HTTP $HTTP_STATUS)"
+                echo "BASE_URL=$BASE_URL" >> $GITHUB_ENV
+                exit 0
+              else
+                echo "  Deployment found but not ready yet (HTTP $HTTP_STATUS, attempt $((ATTEMPT + 1))/$MAX_ATTEMPTS)"
+              fi
             else
-              echo "  Waiting... (HTTP $HTTP_STATUS, attempt $((ATTEMPT + 1))/$MAX_ATTEMPTS)"
+              echo "  Waiting for deployment... (attempt $((ATTEMPT + 1))/$MAX_ATTEMPTS)"
             fi
 
             sleep 5
             ATTEMPT=$((ATTEMPT + 1))
           done
 
-          if [ $ATTEMPT -ge $MAX_ATTEMPTS ]; then
-            echo "ERROR: Deployment not ready after 3 minutes"
-            exit 1
-          fi
-
-          echo "BASE_URL=$BASE_URL" >> $GITHUB_ENV
+          echo "ERROR: Deployment not ready after 3 minutes"
+          exit 1
 
       - name: Run Playwright tests
         run: npx playwright test
