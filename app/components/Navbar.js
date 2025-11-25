@@ -60,18 +60,27 @@ export default function Navbar() {
                     <motion.a
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
-                        href="/#about" 
+                        href="/#about"
                         className="text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600"
-                        onClick={() => setMenuOpen(false)}  
+                        onClick={() => setMenuOpen(false)}
                     >
                         About
                     </motion.a>
                     <motion.a
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95}}
+                        href="/experience"
+                        className="text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600"
+                        onClick={() => setMenuOpen(false)}
+                    >
+                        Experience
+                    </motion.a>
+                    <motion.a
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95}}
                         href="/tools"
                         className="text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600"
-                        onClick={() => setMenuOpen(false)}  
+                        onClick={() => setMenuOpen(false)}
                     >
                         Tools
                     </motion.a>
@@ -80,12 +89,11 @@ export default function Navbar() {
                         whileTap={{ scale: 0.95 }}
                         href="/#contact"
                         className="text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600"
-                        onClick={() => setMenuOpen(false)}  
+                        onClick={() => setMenuOpen(false)}
                     >
                         Contact
                     </motion.a>
                 </div>
-
                 {/* Dark Mode Toggle */}
                 <div className="flex-shrink-0">
                     <DarkModeToggle />
@@ -113,6 +121,9 @@ export default function Navbar() {
                     >
                         <Link href="/#about" className="text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600" onClick={() => setMenuOpen(false)}>
                             About
+                        </Link>
+                        <Link href="/experience" className="text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600" onClick={() => setMenuOpen(false)}>
+                            Experience
                         </Link>
                         <Link href="/tools" className="text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600" onClick={() => setMenuOpen(false)}>
                             Tools
