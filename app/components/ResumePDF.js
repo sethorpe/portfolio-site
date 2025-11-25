@@ -18,11 +18,11 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 24,
     fontWeight: "bold",
-    marginBottom: 8,
+    marginBottom: 12,
   },
   title: {
     fontSize: 12,
-    marginBottom: 5,
+    marginBottom: 6,
   },
   contactInfo: {
     fontSize: 9,
@@ -117,30 +117,71 @@ export default function ResumePDF({ experienceData }) {
     return date.toLocaleDateString("en-US", { year: "numeric", month: "short" });
   };
 
-  // Consolidate all skills from all jobs into unique list
+  // Consolidate all skills from all jobs into unique list with smart category mapping
   const getAllSkills = () => {
+    // Category mapping to consolidate similar categories
+    const categoryMapping = {
+      "Programming": "Programming Languages",
+      "Automation & Testing": "Testing & Automation Frameworks",
+      "Testing Frameworks": "Testing & Automation Frameworks",
+      "Testing": "Testing & Automation Frameworks",
+      "Automation": "Testing & Automation Frameworks",
+      "Data & Databases": "Data & Databases",
+      "CI/CD": "CI/CD & DevOps",
+      "Tools & Platforms": "Tools & Platforms",
+      "Tools": "Tools & Platforms",
+      "Specialized Systems": "Specialized Systems",
+      "Banking Systems": "Domain Expertise"
+    };
+
     const skillsMap = new Map();
 
     experienceData.experience.forEach(job => {
       if (job.technologies) {
         job.technologies.forEach(techGroup => {
-          if (!skillsMap.has(techGroup.category)) {
-            skillsMap.set(techGroup.category, new Set());
+          // Map category to consolidated name
+          const mappedCategory = categoryMapping[techGroup.category] || techGroup.category;
+
+          if (!skillsMap.has(mappedCategory)) {
+            skillsMap.set(mappedCategory, new Set());
           }
           techGroup.skills.forEach(skill => {
-            skillsMap.get(techGroup.category).add(skill);
+            skillsMap.get(mappedCategory).add(skill);
           });
         });
       }
     });
 
-    // Convert to array format
+    // Define desired order for professional appearance
+    const categoryOrder = [
+      "Programming Languages",
+      "Testing & Automation Frameworks",
+      "Data & Databases",
+      "CI/CD & DevOps",
+      "Tools & Platforms",
+      "Specialized Systems",
+      "Domain Expertise"
+    ];
+
+    // Convert to array format in specific order
     const consolidated = [];
+    categoryOrder.forEach(category => {
+      if (skillsMap.has(category)) {
+        consolidated.push({
+          category,
+          skills: Array.from(skillsMap.get(category)).sort()
+        });
+      }
+    });
+
+    // Add any unmapped categories at the end
     skillsMap.forEach((skills, category) => {
-      consolidated.push({
-        category,
-        skills: Array.from(skills).sort()
-      });
+      if (!categoryOrder.includes(category)) {
+        consolidated.push({
+          category,
+          skills: Array.from(skills).sort()
+        });
+      }
     });
 
     return consolidated;
@@ -157,9 +198,6 @@ export default function ResumePDF({ experienceData }) {
           <Text style={styles.title}>Software Development Engineer in Test (SDET)</Text>
           <Text style={styles.contactInfo}>
             LinkedIn: linkedin.com/in/s-thorpe
-          </Text>
-          <Text style={styles.contactInfo}>
-            Portfolio: [Your portfolio URL here]
           </Text>
         </View>
 
@@ -195,33 +233,35 @@ export default function ResumePDF({ experienceData }) {
           <Text style={styles.sectionTitle}>Professional Experience</Text>
 
           {experienceData.experience.map((job, index) => (
-            <View key={job.id} style={{ marginBottom: 12 }}>
-              {/* Job Header */}
-              <View style={styles.jobHeader}>
-                <Text style={styles.jobTitle}>{job.role}</Text>
-                <Text style={styles.company}>
-                  {job.company.name}
-                </Text>
-                <Text style={styles.jobMeta}>
-                  {formatDate(job.startDate)} - {job.current ? "Present" : formatDate(job.endDate)}{" "}
-                  | {job.type}
-                </Text>
-              </View>
-
-              {/* Achievements */}
-              {job.achievements && job.achievements.length > 0 && (
-                <View style={styles.bulletList}>
-                  {job.achievements.map((achievement, i) => (
-                    <View key={i} style={styles.bulletItem}>
-                      <Text style={styles.bullet}>•</Text>
-                      <Text style={styles.bulletText}>
-                        {achievement.text} ({achievement.metric})
-                      </Text>
-                    </View>
-                  ))}
+            <React.Fragment key={job.id}>
+              <View style={{ marginBottom: 12 }} break={index === 1}>
+                {/* Job Header */}
+                <View style={styles.jobHeader}>
+                  <Text style={styles.jobTitle}>{job.role}</Text>
+                  <Text style={styles.company}>
+                    {job.company.name}
+                  </Text>
+                  <Text style={styles.jobMeta}>
+                    {formatDate(job.startDate)} - {job.current ? "Present" : formatDate(job.endDate)}{" "}
+                    | {job.type}
+                  </Text>
                 </View>
-              )}
-            </View>
+
+                {/* Achievements */}
+                {job.achievements && job.achievements.length > 0 && (
+                  <View style={styles.bulletList}>
+                    {job.achievements.map((achievement, i) => (
+                      <View key={i} style={styles.bulletItem}>
+                        <Text style={styles.bullet}>•</Text>
+                        <Text style={styles.bulletText}>
+                          {achievement.text} ({achievement.metric})
+                        </Text>
+                      </View>
+                    ))}
+                  </View>
+                )}
+              </View>
+            </React.Fragment>
           ))}
         </View>
 
