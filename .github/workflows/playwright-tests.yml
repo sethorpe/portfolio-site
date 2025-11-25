@@ -29,50 +29,78 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Wait for Vercel deployment and get preview URL
+      - name: Set BASE_URL based on branch
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          PRODUCTION_URL: ${{ secrets.PRODUCTION_URL }}
         run: |
-          echo "Fetching deployment URL from Vercel API..."
-          echo "Commit SHA: ${{ github.sha }}"
+          if [ "${{ github.ref }}" == "refs/heads/main" ]; then
+            echo "Running on main branch - using production URL"
+            BASE_URL="${PRODUCTION_URL}"
 
-          MAX_ATTEMPTS=36  # 3 minutes max (36 x 5s)
-          ATTEMPT=0
-          DEPLOYMENT_URL=""
+            # Wait for production deployment to be ready
+            MAX_ATTEMPTS=36
+            ATTEMPT=0
 
-          while [ $ATTEMPT -lt $MAX_ATTEMPTS ]; do
-            # Query Vercel API for deployments matching this commit
-            RESPONSE=$(curl -s -H "Authorization: Bearer $VERCEL_TOKEN" \
-              "https://api.vercel.com/v6/deployments?projectId=$VERCEL_PROJECT_ID&gitSource.sha=${{ github.sha }}&limit=1")
-
-            # Extract the URL from the response
-            DEPLOYMENT_URL=$(echo "$RESPONSE" | grep -o '"url":"[^"]*' | head -1 | cut -d'"' -f4)
-
-            if [ -n "$DEPLOYMENT_URL" ]; then
-              echo "Found deployment URL: https://$DEPLOYMENT_URL"
-              BASE_URL="https://$DEPLOYMENT_URL"
-
-              # Wait for deployment to be ready
+            while [ $ATTEMPT -lt $MAX_ATTEMPTS ]; do
               HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$BASE_URL")
 
               if [ "$HTTP_STATUS" = "200" ]; then
-                echo "SUCCESS: Deployment is ready (HTTP $HTTP_STATUS)"
+                echo "SUCCESS: Production is ready (HTTP $HTTP_STATUS)"
                 echo "BASE_URL=$BASE_URL" >> $GITHUB_ENV
                 exit 0
               else
-                echo "  Deployment found but not ready yet (HTTP $HTTP_STATUS, attempt $((ATTEMPT + 1))/$MAX_ATTEMPTS)"
+                echo "  Waiting for production... (HTTP $HTTP_STATUS, attempt $((ATTEMPT + 1))/$MAX_ATTEMPTS)"
               fi
-            else
-              echo "  Waiting for deployment... (attempt $((ATTEMPT + 1))/$MAX_ATTEMPTS)"
-            fi
 
-            sleep 5
-            ATTEMPT=$((ATTEMPT + 1))
-          done
+              sleep 5
+              ATTEMPT=$((ATTEMPT + 1))
+            done
 
-          echo "ERROR: Deployment not ready after 3 minutes"
-          exit 1
+            echo "ERROR: Production not ready after 3 minutes"
+            exit 1
+          else
+            echo "Running on branch - fetching preview URL from Vercel API"
+            echo "Commit SHA: ${{ github.sha }}"
+
+            MAX_ATTEMPTS=36  # 3 minutes max (36 x 5s)
+            ATTEMPT=0
+            DEPLOYMENT_URL=""
+
+            while [ $ATTEMPT -lt $MAX_ATTEMPTS ]; do
+              # Query Vercel API for deployments matching this commit
+              RESPONSE=$(curl -s -H "Authorization: Bearer $VERCEL_TOKEN" \
+                "https://api.vercel.com/v6/deployments?projectId=$VERCEL_PROJECT_ID&gitSource.sha=${{ github.sha }}&limit=1")
+
+              # Extract the URL from the response
+              DEPLOYMENT_URL=$(echo "$RESPONSE" | grep -o '"url":"[^"]*' | head -1 | cut -d'"' -f4)
+
+              if [ -n "$DEPLOYMENT_URL" ]; then
+                echo "Found deployment URL: https://$DEPLOYMENT_URL"
+                BASE_URL="https://$DEPLOYMENT_URL"
+
+                # Wait for deployment to be ready
+                HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$BASE_URL")
+
+                if [ "$HTTP_STATUS" = "200" ]; then
+                  echo "SUCCESS: Preview deployment is ready (HTTP $HTTP_STATUS)"
+                  echo "BASE_URL=$BASE_URL" >> $GITHUB_ENV
+                  exit 0
+                else
+                  echo "  Deployment found but not ready yet (HTTP $HTTP_STATUS, attempt $((ATTEMPT + 1))/$MAX_ATTEMPTS)"
+                fi
+              else
+                echo "  Waiting for deployment... (attempt $((ATTEMPT + 1))/$MAX_ATTEMPTS)"
+              fi
+
+              sleep 5
+              ATTEMPT=$((ATTEMPT + 1))
+            done
+
+            echo "ERROR: Preview deployment not ready after 3 minutes"
+            exit 1
+          fi
 
       - name: Run Playwright tests
         run: npx playwright test
